@@ -21,6 +21,15 @@
                     <input type="text" placeholder="Nomor Telp" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
                     <input type="text" placeholder="Sektor/Bidang Usaha" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
                     <input type="text" placeholder="Bidang Usaha yang memuat KBLI" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" />
+                    <!-- google recaptcha -->
+                    <div class="flex justify-center {{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            {!! app('captcha')->display() !!}
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                            @endif
+                    </div>
                 </form>
                 <div class="text-center mt-6">
                     <button class="py-3 w-64 text-xl text-white bg-red-400 rounded-2xl">Daftar</button>

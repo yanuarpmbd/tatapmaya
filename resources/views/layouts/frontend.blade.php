@@ -33,7 +33,6 @@
     </div>
 @livewireScripts
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         var scrollpos = window.scrollY;
         var header = document.getElementById("header");
@@ -113,12 +112,6 @@
                 t = t.parentNode;
             }
             return false;
-        }
-    </script>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
-    <script>
-        function onSubmit(token) {
-            document.getElementById("form-pendaftaran").submit();
         }
     </script>
 

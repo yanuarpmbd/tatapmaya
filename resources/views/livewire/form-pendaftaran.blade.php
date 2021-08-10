@@ -34,17 +34,26 @@
                 @error('sektor') <span class="error text-red-500">{{ $message }}</span> @enderror
                 <input type="text" placeholder="BIDANG USAHA YANG MEMUAT KBLI" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none uppercase" wire:model="kbli"/>
                 @error('kbli') <span class="error text-red-500">{{ $message }}</span> @enderror
-                <!-- google recaptcha -->
                 <div class="text-center mt-6">
                     <button type="submit"
                             data-sitekey="{{env('CAPTCHA_SITE_KEY')}}"
                             data-callback='handle'
-                            data-action='submit'
-                            class="py-3 w-64 text-xl text-white bg-red-400 rounded-2xl">Daftar
+                            class="g-recaptcha py-3 w-64 text-xl text-white bg-red-400 rounded-2xl">Daftar
                     </button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+<script src="https://www.google.com/recaptcha/api.js?render={{env('CAPTCHA_SITE_KEY')}}"></script>
+<script>
+    function handle(e) {
+        grecaptcha.ready(function () {
+            grecaptcha.execute('{{env('CAPTCHA_SITE_KEY')}}', {action: 'submit'})
+                .then(function (token) {
+                    @this.set('captcha', token);
+                });
+        })
+    }
+</script>
 

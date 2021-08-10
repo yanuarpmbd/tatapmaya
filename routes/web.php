@@ -13,12 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-Route::get('/pemohon', function () {
-    return view('form-pendaftaran');
-})->name('pemohon');
+Route::get('/', \App\Http\Livewire\Welcome::class)->name('welcome');
+Route::get('/form-pendaftaran', \App\Http\Livewire\FormPendaftaran::class)->name('form-pendaftaran');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

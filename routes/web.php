@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', \App\Http\Livewire\Welcome::class)->name('welcome');
 Route::get('/form-pendaftaran', \App\Http\Livewire\FormPendaftaran::class)->name('form-pendaftaran');
+Route::get('/faq', \App\Http\Livewire\Faq::class)->name('faq');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::prefix('admin')->group(function () {
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

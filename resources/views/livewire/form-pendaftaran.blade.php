@@ -1,4 +1,4 @@
-<section class="bg-gray-50 border-b py-8">
+<section class="bg-gray-100 border-b py-8 h-screen">
     <div class="container max-w-5xl mx-auto m-8">
         <div class="py-12 px-12 bg-white rounded-2xl shadow-xl z-20">
             <div>

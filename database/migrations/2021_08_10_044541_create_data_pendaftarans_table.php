@@ -15,7 +15,7 @@ class CreateDataPendaftaransTable extends Migration
     {
         Schema::create('data_pendaftarans', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
+            $table->string('jenis_pemohon');
             $table->string('nama_pemohon');
             $table->string('nama_perusahaan');
             $table->string('alamat_usaha');
@@ -23,6 +23,8 @@ class CreateDataPendaftaransTable extends Migration
             $table->string('phone', 15);
             $table->string('sektor');
             $table->string('kbli');
+            $table->string('status');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

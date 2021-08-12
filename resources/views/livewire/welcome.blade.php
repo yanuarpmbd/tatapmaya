@@ -1,5 +1,4 @@
 <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center text-white">
-    <!--Left Col-->
     <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
         <p class="tracking-loose text-2xl mt-4 w-full">Kesulitan dalam mengajukan izin secara online?</p>
         <h1 class="my-4 text-5xl font-bold leading-tight">
@@ -12,7 +11,6 @@
             Daftar
         </a>
     </div>
-    <!--Right Col-->
     <div class="w-full md:w-3/5 py-6 text-center">
         <img class="w-full md:w-4/5 z-50" src="{{asset('img/hero.png')}}" />
     </div>

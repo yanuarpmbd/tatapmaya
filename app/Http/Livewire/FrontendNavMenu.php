@@ -10,4 +10,8 @@ class FrontendNavMenu extends Component
     {
         return view('livewire.frontend-nav-menu');
     }
+
+    public function tutorial(){
+        return redirect()->route('tutorial');
+    }
 }

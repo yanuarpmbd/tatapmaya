@@ -14,12 +14,12 @@
                         </div>
                     @endif
                 </div>
-                <select class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" wire:model="status">
-                    <option selected value="">PILIH STATUS</option>
+                <select class="block text-sm py-3 px-4 rounded-lg w-full border outline-none" wire:model="jenis_pemohon">
+                    <option selected value="">PILIH JENIS PEMOHON</option>
                     <option>PERORANGAN</option>
                     <option>BADAN USAHA</option>
                 </select>
-                @error('status') <span class="error text-red-500">{{ $message }}</span> @enderror
+                @error('jenis_pemohon') <span class="error text-red-500">{{ $message }}</span> @enderror
                 <input type="text" placeholder="NAMA" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none uppercase" wire:model="nama_pemohon"/>
                 @error('nama_pemohon') <span class="error text-red-500">{{ $message }}</span> @enderror
                 <input type="text" placeholder="NAMA PERUSAHAAN" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none uppercase" wire:model="nama_perusahaan"/>

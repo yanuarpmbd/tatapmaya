@@ -9,10 +9,14 @@ use Livewire\Component;
 
 class FormPendaftaran extends Component
 {
-    public $status = null, $nama_pemohon, $nama_perusahaan, $alamat_usaha, $email, $phone, $sektor, $kbli;
+    public function render(){
+        return view('livewire.form-pendaftaran')->extends('layouts.frontend');
+    }
+
+    public $jenis_pemohon = null, $nama_pemohon, $nama_perusahaan, $alamat_usaha, $email, $phone, $sektor, $kbli, $status = 1;
 
     protected $rules = [
-        'status' => 'required',
+        'jenis_pemohon' => 'required',
         'nama_pemohon' => 'required',
         'nama_perusahaan' => 'required',
         'alamat_usaha' => 'required',
@@ -23,7 +27,7 @@ class FormPendaftaran extends Component
     ];
 
     protected $messages = [
-        'status.required' => 'Silahkan Pilih Status',
+        'jenis_pemohon.required' => 'Silahkan Pilih Jenis Pemohon',
         'nama_pemohon.required' => 'Silahkan Isi Nama Pemohon',
         'nama_perusahaan.required' => 'Silahkan Isi Nama Perusahaan',
         'alamat_usaha.required' => 'Silahkan Isi Alamat Usaha',
@@ -39,20 +43,17 @@ class FormPendaftaran extends Component
         $this->validate();
 
         DataPendaftaran::create([
-            'status' => strtoupper($this->status),
+            'jenis_pemohon' => strtoupper($this->jenis_pemohon),
             'nama_pemohon' => strtoupper($this->nama_pemohon),
             'nama_perusahaan' => strtoupper($this->nama_perusahaan),
             'alamat_usaha' => strtoupper($this->alamat_usaha),
             'email' => $this->email,
             'phone' => strtoupper($this->phone),
             'sektor' => strtoupper($this->sektor),
-            'kbli' => strtoupper($this->kbli)
+            'kbli' => strtoupper($this->kbli),
+            'status' => $this->status,
         ]);
 
         session()->flash('message', 'Pendaftaran Berhasil, Petugas Kami Akan Segera Menjadwalkan Pelayanan Pendampingan Perizinan Secara Tatap Maya, Silahkan Tunggu 1x24 Jam dan Cek Email Anda Secara Berkala, Terima Kasih.');
-    }
-
-    public function render(){
-        return view('livewire.form-pendaftaran')->extends('layouts.frontend');
     }
 }

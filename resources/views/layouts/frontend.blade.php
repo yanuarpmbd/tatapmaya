@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>PEPAYA - Pelayanan Pendampingan Perizinan Secara Tatap Maya</title>
+    <title>OMES - Online Mentoring System DPMPTSP Prov. Jateng</title>
     <link rel="shortcut icon" href="{{asset('img/ptsp_.png')}}" />
 
     <!-- Font -->

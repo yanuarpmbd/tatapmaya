@@ -1,6 +1,6 @@
 <nav id="header" class="fixed w-full z-30 top-0 text-white">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-        <div class="pl-4 grid grid-rows-2 flex items-center">
+        <div class="pl-4 flex items-center">
             <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="{{route('welcome')}}">
                 <svg class="h-10 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
                     <path d="M264.704,96.512H51.2c-28.16,0-51.2,23.04-51.2,51.2v172.544c0,28.16,23.04,51.2,51.2,51.2h213.504
@@ -11,9 +11,11 @@
 			C467.968,135.424,450.048,120.064,430.08,124.672z"
                     />
                 </svg>
-                PEPAYA
+                OMES
             </a>
-            <h6 class="toggleColour text-white no-underline hover:no-underline">Pendampingan Perizinan Tatap Maya</h6>
+           {{-- grid grid-rows-2  <h6 class="toggleColour text-white no-underline hover:no-underline">
+                Online Mentoring System
+            </h6>--}}
         </div>
         <div class="block lg:hidden pr-4">
             <button id="nav-toggle" class="flex items-center p-1 text-pink-800 hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">

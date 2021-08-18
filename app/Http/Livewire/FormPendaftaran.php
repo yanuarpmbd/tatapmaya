@@ -42,18 +42,25 @@ class FormPendaftaran extends Component
     public function store(){
         $this->validate();
 
-        DataPendaftaran::create([
-            'jenis_pemohon' => strtoupper($this->jenis_pemohon),
-            'nama_pemohon' => strtoupper($this->nama_pemohon),
-            'nama_perusahaan' => strtoupper($this->nama_perusahaan),
-            'alamat_usaha' => strtoupper($this->alamat_usaha),
-            'email' => $this->email,
-            'phone' => strtoupper($this->phone),
-            'sektor' => strtoupper($this->sektor),
-            'kbli' => strtoupper($this->kbli),
-            'status' => $this->status,
-        ]);
+        $cek_data = DataPendaftaran::where('email', $this->email)->get();
 
-        session()->flash('message', 'Pendaftaran Berhasil, Petugas Kami Akan Segera Menjadwalkan Pelayanan Pendampingan Perizinan Secara Tatap Maya, Silahkan Tunggu 1x24 Jam dan Cek Email Anda Secara Berkala, Terima Kasih.');
+        if ($cek_data->isNotEmpty()) {
+            session()->flash('error', 'Pendaftaran Gagal, Anda Sudah Pernah Melakukan Pendaftaran Sebelumnya, Silahkan Tunggu 2x24 Jam Untuk Melakukan Pendaftaran Kembali, Terima Kasih.');
+        }
+        else{
+            DataPendaftaran::create([
+                'jenis_pemohon' => strtoupper($this->jenis_pemohon),
+                'nama_pemohon' => strtoupper($this->nama_pemohon),
+                'nama_perusahaan' => strtoupper($this->nama_perusahaan),
+                'alamat_usaha' => strtoupper($this->alamat_usaha),
+                'email' => $this->email,
+                'phone' => strtoupper($this->phone),
+                'sektor' => strtoupper($this->sektor),
+                'kbli' => strtoupper($this->kbli),
+                'status' => $this->status,
+            ]);
+
+            session()->flash('message', 'Pendaftaran Berhasil, Petugas Kami Akan Segera Menjadwalkan Pelayanan Pendampingan Perizinan Secara Tatap Maya, Silahkan Tunggu 2x24 Jam dan Cek Email Anda Secara Berkala, Terima Kasih.');
+        }
     }
 }

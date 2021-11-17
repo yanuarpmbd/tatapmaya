@@ -49,6 +49,7 @@
                 @error('sektor') <span class="error text-red-500">{{ $message }}</span> @enderror
                 <input type="text" placeholder="BIDANG USAHA YANG MEMUAT KBLI" class="block text-sm py-3 px-4 rounded-lg w-full border outline-none uppercase" wire:model="kbli"/>
                 @error('kbli') <span class="error text-red-500">{{ $message }}</span> @enderror
+                <x-honey recaptcha/>
                 <div class="text-center mt-6">
                     <button type="submit" class="py-3 w-64 text-xl text-white bg-red-400 rounded-2xl">Daftar</button>
                 </div>

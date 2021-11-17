@@ -6,9 +6,12 @@ use App\Models\DataPendaftaran;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
+use Lukeraymonddowning\Honey\Traits\WithRecaptcha;
 
 class FormPendaftaran extends Component
 {
+    use WithRecaptcha;
+
     public function render(){
         return view('livewire.form-pendaftaran')->extends('layouts.frontend');
     }
@@ -40,6 +43,7 @@ class FormPendaftaran extends Component
     ];
 
     public function store(){
+
         $this->validate();
 
         $cek_data = DataPendaftaran::where('email', $this->email)->get();
